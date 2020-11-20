@@ -61,18 +61,18 @@ pipeline {
               success {
                   echo 'Successfully Cloned Repository'
 
-                  mail  to: 'june0313@gmail.com',
-                        subject: "Deploy Frontend Success",
-                        body: "Successfully deployed frontend!"
+                  // mail  to: 'june0313@gmail.com',
+                  //       subject: "Deploy Frontend Success",
+                  //       body: "Successfully deployed frontend!"
 
               }
 
               failure {
                   echo 'I failed :('
 
-                  mail  to: 'june0313@gmail.com',
-                        subject: "Failed Pipelinee",
-                        body: "Something is wrong with deploy frontend"
+                  // mail  to: 'june0313@gmail.com',
+                  //       subject: "Failed Pipelinee",
+                  //       body: "Something is wrong with deploy frontend"
               }
           }
         }
@@ -140,7 +140,6 @@ pipeline {
 
             dir ('./server'){
                 sh '''
-                docker rm -f $(docker ps -aq)
                 docker run -p 80:80 -d server
                 '''
             }
